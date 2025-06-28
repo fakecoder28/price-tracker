@@ -1,0 +1,14 @@
+{
+  "name": "price-tracker-scraper",
+  "version": "1.0.0",
+  "description": "Price tracking scraper",
+  "main": "index.js",
+  "dependencies": {
+    "puppeteer": "^21.0.0",
+    "cheerio": "^1.0.0-rc.12",
+    "axios": "^1.4.0"
+  },
+  "scripts": {
+    "start": "node index.js"
+  }
+}
