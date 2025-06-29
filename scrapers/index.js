@@ -4,15 +4,10 @@ const amazonScraper = require('./amazon-scraper');
 const argosScraper = require('./argos-scraper');
 const { savePrice, loadProducts, delay } = require('./utils');
 
-const USER_AGENTS = [
-  'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
-  'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36',
-  'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36'
-];
-
 async function scrapePrice(product) {
   try {
-    console.log(`Scraping: ${product.name}`);
+    console.log(`\n=== Scraping: ${product.name} ===`);
+    console.log(`URL: ${product.url}`);
     
     let result;
     if (product.site === 'amazon.in') {
@@ -24,6 +19,8 @@ async function scrapePrice(product) {
     }
     
     if (result.success) {
+      console.log(`✅ Success: Found price ${result.price} ${result.currency}`);
+      
       await savePrice(product.id, {
         date: new Date().toISOString().split('T')[0],
         price: result.price,
@@ -35,16 +32,18 @@ async function scrapePrice(product) {
       // Update product status
       product.status = 'active';
       product.lastError = null;
+      product.lastUpdated = new Date().toISOString();
     } else {
       throw new Error(result.error);
     }
     
   } catch (error) {
-    console.error(`Error scraping ${product.name}:`, error.message);
+    console.error(`❌ Error scraping ${product.name}:`, error.message);
     
     // Update product with error status
     product.status = 'error';
     product.lastError = error.message;
+    product.lastUpdated = new Date().toISOString();
     
     await savePrice(product.id, {
       date: new Date().toISOString().split('T')[0],
@@ -58,25 +57,51 @@ async function scrapePrice(product) {
 
 async function main() {
   try {
-    const products = loadProducts();
-    console.log(`Found ${products.length} products to scrape`);
+    console.log('🚀 Starting price scraper...');
     
-    for (const product of products) {
+    const products = loadProducts();
+    console.log(`📦 Found ${products.length} products to scrape`);
+    
+    if (products.length === 0) {
+      console.log('⚠️  No products found to scrape');
+      return;
+    }
+    
+    for (let i = 0; i < products.length; i++) {
+      const product = products[i];
+      console.log(`\n📊 Progress: ${i + 1}/${products.length}`);
+      
       await scrapePrice(product);
-      await delay(Math.random() * 3000 + 2000); // 2-5 second delay
+      
+      // Add delay between requests to be respectful
+      if (i < products.length - 1) {
+        const delayTime = Math.random() * 3000 + 2000; // 2-5 seconds
+        console.log(`⏳ Waiting ${Math.round(delayTime/1000)}s before next request...`);
+        await delay(delayTime);
+      }
     }
     
     // Save updated products.json
-    fs.writeFileSync(
-      path.join(__dirname, '../data/products.json'),
-      JSON.stringify({ products }, null, 2)
-    );
+    const dataPath = path.join(__dirname, '../data/products.json');
+    fs.writeFileSync(dataPath, JSON.stringify({ products }, null, 2));
     
-    console.log('Scraping completed successfully');
+    console.log('\n✅ Scraping completed successfully');
+    
+    // Summary
+    const activeCount = products.filter(p => p.status === 'active').length;
+    const errorCount = products.filter(p => p.status === 'error').length;
+    console.log(`📈 Summary: ${activeCount} successful, ${errorCount} failed`);
+    
   } catch (error) {
-    console.error('Scraping failed:', error);
+    console.error('💥 Scraping failed:', error);
     process.exit(1);
   }
 }
+
+// Handle unhandled rejections
+process.on('unhandledRejection', (reason, promise) => {
+  console.error('Unhandled Rejection at:', promise, 'reason:', reason);
+  process.exit(1);
+});
 
 main();
