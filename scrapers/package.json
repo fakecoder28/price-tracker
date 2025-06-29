@@ -3,10 +3,13 @@
   "version": "1.0.0",
   "description": "Price tracking scraper",
   "main": "index.js",
+  "engines": {
+    "node": ">=20.0.0"
+  },
   "dependencies": {
-    "puppeteer": "^21.0.0",
+    "puppeteer": "^22.0.0",
     "cheerio": "^1.0.0-rc.12",
-    "axios": "^1.4.0"
+    "axios": "^1.7.0"
   },
   "scripts": {
     "start": "node index.js"
