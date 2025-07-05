@@ -6,10 +6,10 @@
       "name": "Morphy Richards 3 IN 1 750 Watt Sandwich Maker",
       "site": "amazon.in",
       "status": "error",
-      "lastError": "Price not found with any method",
+      "lastError": "Price not found with any method. Amazon might be blocking the request.",
       "groupId": "group-1",
       "addedDate": "2025-06-28",
-      "lastUpdated": "2025-07-05T11:58:58.645Z"
+      "lastUpdated": "2025-07-05T12:15:58.125Z"
     },
     {
       "id": "prod-2",
@@ -20,7 +20,7 @@
       "lastError": null,
       "groupId": "group-2",
       "addedDate": "2025-06-28",
-      "lastUpdated": "2025-07-05T11:59:12.958Z"
+      "lastUpdated": "2025-07-05T12:16:10.346Z"
     }
   ]
 }
