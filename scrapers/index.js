@@ -2,8 +2,13 @@ const fs = require('fs');
 const path = require('path');
 const amazonScraper = require('./amazon-scraper');
 const argosScraper = require('./argos-scraper');
+// Add at the top with other imports
+const agodaScraper = require('./agoda-scraper');
 const { savePrice, loadProducts, delay } = require('./utils');
 
+
+
+// In the scrapePrice function, add this case:
 async function scrapePrice(product) {
   try {
     console.log(`\n=== Scraping: ${product.name} ===`);
@@ -14,9 +19,16 @@ async function scrapePrice(product) {
       result = await amazonScraper.scrape(product.url);
     } else if (product.site === 'argoswatch.in') {
       result = await argosScraper.scrape(product.url);
+    } else if (product.site === 'agoda.com') {
+      // Pass the target room type from product configuration
+      result = await agodaScraper.scrape(product.url, product.roomType || "Deluxe King Pool View");
     } else {
       throw new Error(`Unsupported site: ${product.site}`);
     }
+    
+    // Rest of the function stays the same...
+  }
+}
     
     if (result.success) {
       console.log(`✅ Success: Found price ${result.price} ${result.currency}`);
