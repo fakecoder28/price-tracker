@@ -1,0 +1,12 @@
+{
+  "productId": "prod-2",
+  "prices": [
+    {
+      "date": "2025-07-05",
+      "price": null,
+      "currency": null,
+      "status": "error",
+      "error": "page.waitForTimeout is not a function"
+    }
+  ]
+}

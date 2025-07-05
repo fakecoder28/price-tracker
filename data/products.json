@@ -5,20 +5,22 @@
       "url": "https://www.amazon.in/Morphy-Richards-Sandwich-changable-Warranty/dp/B0CDXW5R2M",
       "name": "Morphy Richards 3 IN 1 750 Watt Sandwich Maker",
       "site": "amazon.in",
-      "status": "active",
-      "lastError": null,
+      "status": "error",
+      "lastError": "page.waitForTimeout is not a function",
       "groupId": "group-1",
-      "addedDate": "2025-06-28"
+      "addedDate": "2025-06-28",
+      "lastUpdated": "2025-07-05T11:48:40.769Z"
     },
     {
       "id": "prod-2",
       "url": "https://www.argoswatch.in/products/apollo3-olive-green-gold-two-tone-bracelet",
       "name": "Argos Apollo III Olive Green Gold Two Tone",
       "site": "argoswatch.in",
-      "status": "active",
-      "lastError": null,
+      "status": "error",
+      "lastError": "page.waitForTimeout is not a function",
       "groupId": "group-2",
-      "addedDate": "2025-06-28"
+      "addedDate": "2025-06-28",
+      "lastUpdated": "2025-07-05T11:48:50.329Z"
     }
   ]
 }
