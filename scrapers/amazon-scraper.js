@@ -10,11 +10,16 @@ const PRICE_SELECTORS = [
   'span.a-price.a-text-price.a-size-medium.apexPriceToPay .a-offscreen'
 ];
 
+// Custom delay function to replace waitForTimeout
+function delay(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
 async function scrape(url) {
   let browser;
   try {
     browser = await puppeteer.launch({
-      headless: 'new',  // Updated headless mode
+      headless: 'new',
       args: [
         '--no-sandbox',
         '--disable-setuid-sandbox',
@@ -40,8 +45,8 @@ async function scrape(url) {
       timeout: 30000 
     });
     
-    // Wait a bit for dynamic content
-    await page.waitForTimeout(2000);
+    // Wait for dynamic content using custom delay
+    await delay(2000);
     
     let price = null;
     let rawPrice = null;
@@ -49,6 +54,7 @@ async function scrape(url) {
     // Try each selector
     for (const selector of PRICE_SELECTORS) {
       try {
+        // Wait for selector to appear
         await page.waitForSelector(selector, { timeout: 5000 });
         const element = await page.$(selector);
         if (element) {
@@ -70,10 +76,36 @@ async function scrape(url) {
       }
     }
     
+    // If no specific selectors worked, try a more general approach
     if (!price) {
-      // Take screenshot for debugging
-      await page.screenshot({ path: '/tmp/debug.png' });
-      throw new Error('Price not found with any selector');
+      try {
+        // Look for any element containing price-like text
+        const priceElements = await page.$$eval('*', elements => {
+          return elements
+            .map(el => el.textContent?.trim())
+            .filter(text => text && /₹[\d,]+/.test(text))
+            .slice(0, 5); // Take first 5 matches
+        });
+        
+        for (const priceText of priceElements) {
+          const match = priceText.match(/₹([\d,]+)/);
+          if (match) {
+            const testPrice = parseFloat(match[1].replace(/,/g, ''));
+            if (testPrice > 100 && testPrice < 100000) { // Reasonable price range
+              price = testPrice;
+              rawPrice = priceText;
+              console.log(`Found price with general search: ${rawPrice}`);
+              break;
+            }
+          }
+        }
+      } catch (e) {
+        console.log('General price search failed:', e.message);
+      }
+    }
+    
+    if (!price) {
+      throw new Error('Price not found with any method');
     }
     
     return {
