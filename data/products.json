@@ -6,10 +6,9 @@
       "name": "Morphy Richards 3 IN 1 750 Watt Sandwich Maker",
       "site": "amazon.in",
       "status": "error",
-      "lastError": "Price not found with any method. Amazon might be blocking the request.",
+      "lastError": "Bot detection",
       "groupId": "group-1",
-      "addedDate": "2025-06-28",
-      "lastUpdated": "2025-07-05T12:15:58.125Z"
+      "addedDate": "2025-06-28"
     },
     {
       "id": "prod-2",
@@ -19,8 +18,18 @@
       "status": "active",
       "lastError": null,
       "groupId": "group-2",
-      "addedDate": "2025-06-28",
-      "lastUpdated": "2025-07-05T12:16:10.346Z"
+      "addedDate": "2025-06-28"
+    },
+    {
+      "id": "prod-3",
+      "url": "https://www.agoda.com/en-in/kaldan-samudhra/hotel/chennai-in.html?countryId=35&finalPriceView=1&isShowMobileAppPrice=false&cid=1922866&numberOfBedrooms=&familyMode=false&adults=1&children=0&rooms=1&maxRooms=0&checkIn=2025-07-14&isCalendarCallout=false&childAges=&numberOfGuest=0&missingChildAges=false&travellerType=-1&showReviewSubmissionEntry=false&currencyCode=INR&isFreeOccSearch=false&tag=85896a0a-2ed4-40bd-afb1-7e8719bfd17e&tspTypes=16,-1,-1&los=1&searchrequestid=95487162-52d7-4542-88bb-b954253e7671",
+      "name": "Kaldan Samudhra Hotel - Deluxe King Pool View",
+      "site": "agoda.com",
+      "roomType": "Deluxe King Pool View",
+      "status": "active",
+      "lastError": null,
+      "groupId": "group-3",
+      "addedDate": "2025-06-29"
     }
   ]
 }
