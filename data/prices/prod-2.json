@@ -7,6 +7,13 @@
       "currency": null,
       "status": "error",
       "error": "page.waitForTimeout is not a function"
+    },
+    {
+      "date": "2025-07-05",
+      "price": 11490,
+      "currency": "INR",
+      "status": "success",
+      "rawData": "Rs. 11,490"
     }
   ]
 }
