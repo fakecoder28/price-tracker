@@ -20,19 +20,13 @@ async function scrapePrice(product) {
     } else if (product.site === 'argoswatch.in') {
       result = await argosScraper.scrape(product.url);
     } else if (product.site === 'agoda.com') {
-      // Pass the target room type from product configuration
       result = await agodaScraper.scrape(product.url, product.roomType || "Deluxe King Pool View");
     } else {
       throw new Error(`Unsupported site: ${product.site}`);
     }
-    
-    // Rest of the function stays the same...
-  }
-}
-    
+
     if (result.success) {
       console.log(`✅ Success: Found price ${result.price} ${result.currency}`);
-      
       await savePrice(product.id, {
         date: new Date().toISOString().split('T')[0],
         price: result.price,
@@ -40,23 +34,17 @@ async function scrapePrice(product) {
         status: 'success',
         rawData: result.rawPrice
       });
-      
-      // Update product status
       product.status = 'active';
       product.lastError = null;
       product.lastUpdated = new Date().toISOString();
     } else {
       throw new Error(result.error);
     }
-    
   } catch (error) {
     console.error(`❌ Error scraping ${product.name}:`, error.message);
-    
-    // Update product with error status
     product.status = 'error';
     product.lastError = error.message;
     product.lastUpdated = new Date().toISOString();
-    
     await savePrice(product.id, {
       date: new Date().toISOString().split('T')[0],
       price: null,
@@ -66,6 +54,8 @@ async function scrapePrice(product) {
     });
   }
 }
+    
+
 
 async function main() {
   try {
