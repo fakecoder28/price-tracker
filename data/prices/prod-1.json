@@ -21,6 +21,13 @@
       "currency": null,
       "status": "error",
       "error": "Price not found with any method. Amazon might be blocking the request."
+    },
+    {
+      "date": "2025-07-05",
+      "price": null,
+      "currency": null,
+      "status": "error",
+      "error": "Price not found on mobile version"
     }
   ]
 }
