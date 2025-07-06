@@ -7,6 +7,13 @@
       "currency": "INR",
       "status": "success",
       "rawData": "11050"
+    },
+    {
+      "date": "2025-07-06",
+      "price": 11050,
+      "currency": "INR",
+      "status": "success",
+      "rawData": "11050"
     }
   ]
 }
