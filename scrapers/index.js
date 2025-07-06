@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const amazonScraper = require('./amazon-scraper');
 const argosScraper = require('./argos-scraper');
-// Add at the top with other imports
+const flipkartScraper = require('./flipkart-scraper');
 const agodaScraper = require('./agoda-scraper');
 const { savePrice, loadProducts, delay } = require('./utils');
 
@@ -21,7 +21,9 @@ async function scrapePrice(product) {
       result = await argosScraper.scrape(product.url);
     } else if (product.site === 'agoda.com') {
       result = await agodaScraper.scrape(product.url, product.roomType || "Deluxe King Pool View");
-    } else {
+    } else if (product.site === 'flipkart.com') {
+      result = await flipkartScraper.scrape(product.url);
+    else {
       throw new Error(`Unsupported site: ${product.site}`);
     }
 
