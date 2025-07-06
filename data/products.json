@@ -3,24 +3,22 @@
     {
       "id": "prod-1",
       "url": "https://www.amazon.in/Morphy-Richards-Sandwich-changable-Warranty/dp/B0CDXW5R2M",
-      "name": "Morphy Richards 3 IN 1 750 Watt Sandwich Maker",
+      "name": "Morphy Richards 3 IN 1 750 Watt Sandwich Maker (Amazon)",
       "site": "amazon.in",
       "status": "error",
-      "lastError": "Price not found on mobile version",
+      "lastError": "Bot detection",
       "groupId": "group-1",
-      "addedDate": "2025-06-28",
-      "lastUpdated": "2025-07-06T03:51:46.091Z"
+      "addedDate": "2025-06-28"
     },
     {
-      "id": "prod-2",
+      "id": "prod-2", 
       "url": "https://www.argoswatch.in/products/apollo3-olive-green-gold-two-tone-bracelet",
       "name": "Argos Apollo III Olive Green Gold Two Tone",
       "site": "argoswatch.in",
       "status": "active",
       "lastError": null,
       "groupId": "group-2",
-      "addedDate": "2025-06-28",
-      "lastUpdated": "2025-07-06T03:51:58.485Z"
+      "addedDate": "2025-06-28"
     },
     {
       "id": "prod-3",
@@ -31,8 +29,17 @@
       "status": "active",
       "lastError": null,
       "groupId": "group-3",
-      "addedDate": "2025-06-29",
-      "lastUpdated": "2025-07-06T03:52:13.778Z"
+      "addedDate": "2025-06-29"
+    },
+    {
+      "id": "prod-4",
+      "url": "https://www.flipkart.com/morphy-richards-bajaj-electrical-luxe-twg-grill-toast-waffle/p/itm58174771f7d9f?pid=SWMGSYX38HUZYUSE&lid=LSTSWMGSYX38HUZYUSEFQZ3AS&marketplace=FLIPKART&store=j9e%2Fm38%2F1vj&srno=b_1_7&otracker=browse&fm=organic&iid=ea8a6498-4c85-43a3-bf71-b5b5b0032662.SWMGSYX38HUZYUSE.SEARCH&ppt=None&ppn=None&ssid=hqzllw6o8w0000001751808688663",
+      "name": "Morphy Richards Bajaj Luxe TWG (Flipkart)",
+      "site": "flipkart.com", 
+      "status": "active",
+      "lastError": null,
+      "groupId": "group-1",
+      "addedDate": "2025-07-06"
     }
   ]
 }
