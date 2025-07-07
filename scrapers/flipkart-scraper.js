@@ -1,26 +1,29 @@
 const puppeteer = require('puppeteer');
 
-// Flipkart price selectors (they use different classes)
+// Updated Flipkart price selectors (comprehensive list)
 const PRICE_SELECTORS = [
+  // Current Flipkart selectors (2024-2025)
   '._1_WHN1',
-  '._30jeq3._16Jk6d',
+  '._30jeq3._16Jk6d', 
   '._3I9_wc._2p6lqe',
-  '.notranslate._1_WHN1',
-  '._25b18c .notranslate', 
+  '.Nx9bqj.CxhGGd',
+  '._25b18c',
   '._1vC4OE',
   '._3qQ9m1',
   '._16Jk6d',
   '.CEmiEU .Nx9bqj',
-  '._2rQ-NK'
-];
-
-// Product name selectors
-const NAME_SELECTORS = [
-  '.B_NuCI',
-  '._35KyD6',
-  '.yhZ0Tl',
-  '.x-product-title-label',
-  '._2V5EHH'
+  '._2rQ-NK',
+  
+  // Generic price patterns
+  '[data-testid="price"]',
+  '[class*="price"]',
+  '[class*="Price"]',
+  '.notranslate',
+  
+  // Backup selectors
+  'span:contains("₹")',
+  'div:contains("₹")',
+  '*[class*="currency"]'
 ];
 
 // Custom delay function
@@ -28,10 +31,109 @@ function delay(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
 
+// Function to extract all potential prices from page
+async function extractAllPrices(page) {
+  try {
+    // Get all elements that might contain prices
+    const allPrices = await page.evaluate(() => {
+      const priceElements = [];
+      
+      // Method 1: Look for elements with ₹ symbol
+      const elementsWithRupee = Array.from(document.querySelectorAll('*')).filter(el => {
+        return el.textContent && el.textContent.includes('₹') && el.children.length === 0;
+      });
+      
+      elementsWithRupee.forEach(el => {
+        priceElements.push({
+          text: el.textContent.trim(),
+          className: el.className,
+          tagName: el.tagName,
+          method: 'rupee_symbol'
+        });
+      });
+      
+      // Method 2: Look for elements with price-like classes
+      const priceClassSelectors = [
+        '[class*="price"]', '[class*="Price"]', '[class*="amount"]', 
+        '[class*="cost"]', '[class*="rate"]', '.notranslate'
+      ];
+      
+      priceClassSelectors.forEach(selector => {
+        try {
+          const elements = document.querySelectorAll(selector);
+          elements.forEach(el => {
+            const text = el.textContent?.trim();
+            if (text && /[\d,]+/.test(text)) {
+              priceElements.push({
+                text: text,
+                className: el.className,
+                tagName: el.tagName,
+                selector: selector,
+                method: 'price_class'
+              });
+            }
+          });
+        } catch (e) {
+          // Ignore selector errors
+        }
+      });
+      
+      // Method 3: Look for number patterns that could be prices
+      const allTextElements = Array.from(document.querySelectorAll('*')).filter(el => {
+        const text = el.textContent?.trim();
+        return text && /^\d{1,2}[,.]?\d{3,5}$/.test(text.replace(/[₹,\s]/g, '')) && el.children.length === 0;
+      });
+      
+      allTextElements.forEach(el => {
+        priceElements.push({
+          text: el.textContent.trim(),
+          className: el.className,
+          tagName: el.tagName,
+          method: 'number_pattern'
+        });
+      });
+      
+      return priceElements;
+    });
+    
+    return allPrices;
+  } catch (error) {
+    console.log('Error extracting prices:', error.message);
+    return [];
+  }
+}
+
+// Function to validate and extract price from text
+function extractPrice(text) {
+  if (!text) return null;
+  
+  // Remove common non-price text
+  const excludePatterns = [
+    /delivery|shipping|rating|review|star|off|discount|save|seller|warranty|emi|exchange/i
+  ];
+  
+  for (const pattern of excludePatterns) {
+    if (pattern.test(text)) return null;
+  }
+  
+  // Extract numeric value
+  const priceMatch = text.match(/[\d,]+/);
+  if (!priceMatch) return null;
+  
+  const price = parseFloat(priceMatch[0].replace(/,/g, ''));
+  
+  // Validate price range for kitchen appliances
+  if (price >= 500 && price <= 50000) {
+    return price;
+  }
+  
+  return null;
+}
+
 async function scrape(url) {
   let browser;
   try {
-    console.log(`Starting Flipkart scraper for: ${url}`);
+    console.log(`Starting enhanced Flipkart scraper for: ${url}`);
     
     browser = await puppeteer.launch({
       headless: 'new',
@@ -44,225 +146,176 @@ async function scrape(url) {
         '--no-zygote',
         '--disable-gpu',
         '--disable-blink-features=AutomationControlled',
-        '--user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36'
+        '--disable-features=VizDisplayCompositor'
       ]
     });
     
     const page = await browser.newPage();
     
-    // Set realistic browser properties
+    // Enhanced user agent
     await page.setUserAgent(
       'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36'
     );
     
     await page.setViewport({ 
-      width: 1366, 
-      height: 768,
+      width: 1920, 
+      height: 1080,
       deviceScaleFactor: 1
     });
     
-    // Set headers to look legitimate
+    // Additional headers
     await page.setExtraHTTPHeaders({
-      'Accept-Language': 'en-US,en;q=0.9',
-      'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+      'Accept-Language': 'en-US,en;q=0.9,hi;q=0.8',
+      'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+      'Accept-Encoding': 'gzip, deflate, br',
+      'DNT': '1',
+      'Connection': 'keep-alive',
+      'Upgrade-Insecure-Requests': '1'
     });
     
-    // Remove automation indicators
+    // Remove automation signals
     await page.evaluateOnNewDocument(() => {
-      Object.defineProperty(navigator, 'webdriver', {
-        get: () => undefined,
-      });
+      Object.defineProperty(navigator, 'webdriver', { get: () => undefined });
+      Object.defineProperty(navigator, 'plugins', { get: () => [1, 2, 3, 4, 5] });
+      Object.defineProperty(navigator, 'languages', { get: () => ['en-US', 'en'] });
       delete navigator.__proto__.webdriver;
     });
     
     console.log('Navigating to Flipkart...');
     
-    // Navigate to the page
+    // Navigate with longer timeout
     await page.goto(url, { 
-      waitUntil: 'networkidle2', 
-      timeout: 45000 
+      waitUntil: 'networkidle0', 
+      timeout: 60000 
     });
     
-    console.log('Page loaded, waiting for content...');
+    console.log('Page loaded, waiting for dynamic content...');
     
-    // Wait for dynamic content to load
-    await delay(3000);
+    // Wait for content to fully load
+    await delay(5000);
     
-    // Check for access denied or blocked pages
+    // Check page status
     const title = await page.title();
     const currentUrl = page.url();
     
     console.log(`Page title: ${title}`);
     console.log(`Current URL: ${currentUrl}`);
     
-    if (title.includes('Access Denied') || title.includes('Blocked') || currentUrl.includes('blocked')) {
-      throw new Error('Flipkart blocked the request');
+    // Check for blocks or errors
+    if (title.includes('Access Denied') || 
+        title.includes('Blocked') || 
+        title.includes('Error') ||
+        currentUrl.includes('blocked') ||
+        currentUrl.includes('error')) {
+      throw new Error('Flipkart blocked the request or page error');
     }
     
     let price = null;
     let rawPrice = null;
-    let productName = null;
     
-    // Method 1: Try specific price selectors
-    console.log('Trying Flipkart price selectors...');
+    // Method 1: Try traditional selectors first
+    console.log('Method 1: Trying traditional price selectors...');
     for (const selector of PRICE_SELECTORS) {
       try {
-        const element = await page.$(selector);
-        if (element) {
-          rawPrice = await page.evaluate(el => el.textContent.trim(), element);
-          console.log(`Found price with selector ${selector}: ${rawPrice}`);
+        const elements = await page.$$(selector);
+        for (const element of elements) {
+          const text = await page.evaluate(el => el.textContent?.trim(), element);
+          console.log(`Selector ${selector}: "${text}"`);
           
-          if (rawPrice) {
-            // Extract numeric price (handle ₹2,999 format)
-            const match = rawPrice.match(/[\d,]+/);
-            if (match) {
-              price = parseFloat(match[0].replace(/,/g, ''));
-              if (price > 0) {
-                console.log(`✅ Successfully extracted price: ₹${price}`);
-                break;
-              }
-            }
-          }
-        }
-      } catch (e) {
-        console.log(`Selector ${selector} failed: ${e.message}`);
-        continue;
-      }
-    }
-    
-    // Method 2: Get product name
-    console.log('Extracting product name...');
-    for (const selector of NAME_SELECTORS) {
-      try {
-        const element = await page.$(selector);
-        if (element) {
-          productName = await page.evaluate(el => el.textContent.trim(), element);
-          if (productName && productName.length > 5) {
-            console.log(`✅ Found product name: ${productName}`);
+          const extractedPrice = extractPrice(text);
+          if (extractedPrice) {
+            price = extractedPrice;
+            rawPrice = text;
+            console.log(`✅ Found price with selector ${selector}: ₹${price}`);
             break;
           }
         }
+        if (price) break;
       } catch (e) {
         continue;
       }
     }
     
-    // Method 3: Fallback - search for any price in page content
+    // Method 2: Extract all potential prices and analyze
     if (!price) {
-      console.log('Trying fallback price search...');
-      try {
-        // Look for price patterns in the page
-        const priceElements = await page.$$eval('*', elements => {
-          return elements
-            .map(el => {
-              const text = el.textContent?.trim();
-              return {
-                text: text,
-                tagName: el.tagName,
-                className: el.className
-              };
-            })
-            .filter(item => item.text && /₹\s*[\d,]+/.test(item.text))
-            .slice(0, 5); // Take first 5 matches
-        });
-        
-        console.log(`Found ${priceElements.length} elements with ₹ symbols`);
-        priceElements.forEach((el, i) => {
-          console.log(`Price element ${i}: ${el.text}`);
-        });
-        
-        for (const element of priceElements) {
-          const match = element.text.match(/₹\s*([\d,]+)/);
-          if (match) {
-            const testPrice = parseFloat(match[1].replace(/,/g, ''));
-            if (testPrice > 100 && testPrice < 50000) { // Reasonable range for kitchen appliance
-              price = testPrice;
-              rawPrice = element.text;
-              console.log(`✅ Found price with fallback search: ${rawPrice}`);
-              break;
-            }
-          }
-        }
-      } catch (e) {
-        console.log('Fallback price search failed:', e.message);
-      }
-    }
-    
-    // Method 4: Last resort - look in page HTML
-    if (!price) {
-      console.log('Trying HTML content search...');
-      try {
-        const pageContent = await page.content();
-        
-        // Look for price patterns in HTML
-        const pricePatterns = [
-          /₹\s*([\d,]+)/g,
-          /"price"[^>]*>(.*?₹\s*[\d,]+.*?)</g,
-          /class="[^"]*price[^"]*"[^>]*>(.*?[\d,]+.*?)</g
-        ];
-        
-        for (const pattern of pricePatterns) {
-          const matches = [...pageContent.matchAll(pattern)];
-          console.log(`Pattern found ${matches.length} matches`);
-          
-          for (const match of matches) {
-            const priceText = match[1] || match[0];
-            const numberMatch = priceText.match(/[\d,]+/);
-            if (numberMatch) {
-              const testPrice = parseFloat(numberMatch[0].replace(/,/g, ''));
-              if (testPrice > 1000 && testPrice < 20000) { // Kitchen appliance range
-                price = testPrice;
-                rawPrice = priceText;
-                console.log(`✅ Found price with HTML search: ${rawPrice}`);
-                break;
-              }
-            }
-          }
-          if (price) break;
-        }
-      } catch (e) {
-        console.log('HTML search failed:', e.message);
-      }
-    }
-    
-    if (!price) {
-      // Debug information
-      try {
-        await page.screenshot({ path: '/tmp/flipkart-debug.png' });
-        const html = await page.content();
-        console.log('Page HTML length:', html.length);
-        console.log('Contains ₹:', html.includes('₹'));
-        console.log('Contains price:', html.toLowerCase().includes('price'));
-        
-        // Log some page structure for debugging
-        const pageStructure = await page.$$eval('*', elements => {
-          return elements
-            .slice(0, 10)
-            .map(el => ({
-              tag: el.tagName,
-              class: el.className,
-              text: el.textContent?.trim()?.substring(0, 50)
-            }));
-        });
-        console.log('Page structure sample:', pageStructure);
-        
-      } catch (e) {
-        console.log('Could not generate debug info');
-      }
+      console.log('Method 2: Extracting all potential prices...');
+      const allPrices = await extractAllPrices(page);
       
-      throw new Error('Price not found with any method. Product page structure may have changed.');
+      console.log(`Found ${allPrices.length} potential price elements:`);
+      allPrices.forEach((item, i) => {
+        console.log(`${i + 1}. ${item.method}: "${item.text}" (${item.tagName}.${item.className})`);
+      });
+      
+      // Analyze extracted prices
+      const validPrices = [];
+      allPrices.forEach(item => {
+        const extractedPrice = extractPrice(item.text);
+        if (extractedPrice) {
+          validPrices.push({
+            price: extractedPrice,
+            raw: item.text,
+            confidence: item.method === 'rupee_symbol' ? 3 : item.method === 'price_class' ? 2 : 1
+          });
+        }
+      });
+      
+      if (validPrices.length > 0) {
+        // Sort by confidence and pick the best one
+        validPrices.sort((a, b) => b.confidence - a.confidence);
+        const bestPrice = validPrices[0];
+        price = bestPrice.price;
+        rawPrice = bestPrice.raw;
+        console.log(`✅ Found price with extraction method: ₹${price} from "${rawPrice}"`);
+      }
+    }
+    
+    // Method 3: Screenshot and HTML analysis for debugging
+    if (!price) {
+      console.log('Method 3: Generating debug information...');
+      try {
+        // Take screenshot
+        await page.screenshot({ 
+          path: '/tmp/flipkart-debug.png',
+          fullPage: false
+        });
+        console.log('Screenshot saved for debugging');
+        
+        // Get page info
+        const pageInfo = await page.evaluate(() => {
+          return {
+            title: document.title,
+            bodyText: document.body.textContent.substring(0, 500),
+            hasRupeeSymbol: document.body.textContent.includes('₹'),
+            elementCount: document.querySelectorAll('*').length,
+            priceElements: document.querySelectorAll('[class*="price"], [class*="Price"]').length
+          };
+        });
+        
+        console.log('Page analysis:', pageInfo);
+        
+        // Look for any number that might be a price
+        const bodyText = pageInfo.bodyText;
+        const numberMatches = [...bodyText.matchAll(/(\d{1,2}[,.]?\d{3,5})/g)];
+        console.log('Found numbers in page:', numberMatches.map(m => m[1]).slice(0, 10));
+        
+      } catch (e) {
+        console.log('Could not generate debug info:', e.message);
+      }
+    }
+    
+    if (!price) {
+      throw new Error(`Price not found. Page may have changed structure or product may be unavailable. Title: "${title}"`);
     }
     
     return {
       success: true,
       price: price,
       currency: 'INR',
-      rawPrice: rawPrice,
-      productName: productName || 'Flipkart Product'
+      rawPrice: rawPrice
     };
     
   } catch (error) {
-    console.error('Flipkart scraper error:', error.message);
+    console.error('Enhanced Flipkart scraper error:', error.message);
     return {
       success: false,
       error: error.message
