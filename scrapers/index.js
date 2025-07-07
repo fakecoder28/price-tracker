@@ -23,7 +23,7 @@ async function scrapePrice(product) {
       result = await agodaScraper.scrape(product.url, product.roomType || "Deluxe King Pool View");
     } else if (product.site === 'flipkart.com') {
       result = await flipkartScraper.scrape(product.url);
-    else {
+    } else {
       throw new Error(`Unsupported site: ${product.site}`);
     }
 
