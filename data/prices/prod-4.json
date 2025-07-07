@@ -7,6 +7,13 @@
       "currency": null,
       "status": "error",
       "error": "Price not found with any method. Product page structure may have changed."
+    },
+    {
+      "date": "2025-07-07",
+      "price": null,
+      "currency": null,
+      "status": "error",
+      "error": "Price not found. Page may have changed structure or product may be unavailable. Title: \"\""
     }
   ]
 }
