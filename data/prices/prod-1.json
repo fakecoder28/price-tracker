@@ -126,6 +126,13 @@
       "currency": null,
       "status": "error",
       "error": "Price not found on mobile version"
+    },
+    {
+      "date": "2025-07-20",
+      "price": null,
+      "currency": null,
+      "status": "error",
+      "error": "Price not found on mobile version"
     }
   ]
 }
