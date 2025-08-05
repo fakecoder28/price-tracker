@@ -238,6 +238,13 @@
       "currency": "INR",
       "status": "success",
       "rawData": "Rs. 11,490"
+    },
+    {
+      "date": "2025-08-05",
+      "price": 11490,
+      "currency": "INR",
+      "status": "success",
+      "rawData": "Rs. 11,490"
     }
   ]
 }
