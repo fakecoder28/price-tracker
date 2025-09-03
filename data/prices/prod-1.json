@@ -2,34 +2,6 @@
   "productId": "prod-1",
   "prices": [
     {
-      "date": "2025-07-05",
-      "price": null,
-      "currency": null,
-      "status": "error",
-      "error": "page.waitForTimeout is not a function"
-    },
-    {
-      "date": "2025-07-05",
-      "price": null,
-      "currency": null,
-      "status": "error",
-      "error": "Price not found with any method"
-    },
-    {
-      "date": "2025-07-05",
-      "price": null,
-      "currency": null,
-      "status": "error",
-      "error": "Price not found with any method. Amazon might be blocking the request."
-    },
-    {
-      "date": "2025-07-05",
-      "price": null,
-      "currency": null,
-      "status": "error",
-      "error": "Price not found on mobile version"
-    },
-    {
       "date": "2025-07-06",
       "price": null,
       "currency": null,
@@ -437,6 +409,13 @@
     },
     {
       "date": "2025-09-02",
+      "price": null,
+      "currency": null,
+      "status": "error",
+      "error": "Price not found on mobile version"
+    },
+    {
+      "date": "2025-09-03",
       "price": null,
       "currency": null,
       "status": "error",
