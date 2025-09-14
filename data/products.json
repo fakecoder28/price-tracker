@@ -9,7 +9,7 @@
       "lastError": "Price not found on mobile version",
       "groupId": "group-1",
       "addedDate": "2025-06-28",
-      "lastUpdated": "2025-09-13T01:55:29.160Z"
+      "lastUpdated": "2025-09-14T02:14:10.936Z"
     },
     {
       "id": "prod-2",
@@ -20,7 +20,7 @@
       "lastError": null,
       "groupId": "group-2",
       "addedDate": "2025-06-28",
-      "lastUpdated": "2025-09-13T01:55:43.137Z"
+      "lastUpdated": "2025-09-14T02:14:21.294Z"
     },
     {
       "id": "prod-3",
@@ -32,7 +32,7 @@
       "lastError": "Could not find price for Deluxe King Pool View. Check debug output above for page structure.",
       "groupId": "group-3",
       "addedDate": "2025-06-29",
-      "lastUpdated": "2025-09-13T01:56:19.803Z"
+      "lastUpdated": "2025-09-14T02:14:59.500Z"
     },
     {
       "id": "prod-4",
@@ -43,7 +43,7 @@
       "lastError": "Price not found. Page may have changed structure or product may be unavailable. Title: \"\"",
       "groupId": "group-1",
       "addedDate": "2025-07-06",
-      "lastUpdated": "2025-09-13T01:57:01.805Z"
+      "lastUpdated": "2025-09-14T02:15:42.085Z"
     }
   ]
 }
