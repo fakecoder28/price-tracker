@@ -9,7 +9,7 @@
       "lastError": "Price not found on mobile version",
       "groupId": "group-1",
       "addedDate": "2025-06-28",
-      "lastUpdated": "2025-09-24T02:08:39.529Z"
+      "lastUpdated": "2025-09-25T02:10:03.652Z"
     },
     {
       "id": "prod-2",
@@ -20,7 +20,7 @@
       "lastError": null,
       "groupId": "group-2",
       "addedDate": "2025-06-28",
-      "lastUpdated": "2025-09-24T02:08:50.517Z"
+      "lastUpdated": "2025-09-25T02:10:14.733Z"
     },
     {
       "id": "prod-3",
@@ -28,11 +28,11 @@
       "name": "Kaldan Samudhra Hotel - Deluxe King Pool View",
       "site": "agoda.com",
       "roomType": "Deluxe King Pool View",
-      "status": "error",
-      "lastError": "Could not find price for Deluxe King Pool View. Check debug output above for page structure.",
+      "status": "active",
+      "lastError": null,
       "groupId": "group-3",
       "addedDate": "2025-06-29",
-      "lastUpdated": "2025-09-24T02:09:24.256Z"
+      "lastUpdated": "2025-09-25T02:10:39.731Z"
     },
     {
       "id": "prod-4",
@@ -43,7 +43,7 @@
       "lastError": "Price not found. Page may have changed structure or product may be unavailable. Title: \"\"",
       "groupId": "group-1",
       "addedDate": "2025-07-06",
-      "lastUpdated": "2025-09-24T02:10:05.811Z"
+      "lastUpdated": "2025-09-25T02:11:21.885Z"
     }
   ]
 }
