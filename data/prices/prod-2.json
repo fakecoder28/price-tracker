@@ -2,13 +2,6 @@
   "productId": "prod-2",
   "prices": [
     {
-      "date": "2025-08-04",
-      "price": 11490,
-      "currency": "INR",
-      "status": "success",
-      "rawData": "Rs. 11,490"
-    },
-    {
       "date": "2025-08-05",
       "price": 11490,
       "currency": "INR",
@@ -420,6 +413,13 @@
       "currency": "INR",
       "status": "success",
       "rawData": "Rs. 9,618"
+    },
+    {
+      "date": "2025-10-03",
+      "price": 11490,
+      "currency": "INR",
+      "status": "success",
+      "rawData": "Rs. 11,490"
     }
   ]
 }
