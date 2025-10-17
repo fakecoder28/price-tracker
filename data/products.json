@@ -9,7 +9,7 @@
       "lastError": "Price not found on mobile version",
       "groupId": "group-1",
       "addedDate": "2025-06-28",
-      "lastUpdated": "2025-10-16T02:11:43.882Z"
+      "lastUpdated": "2025-10-17T02:10:23.923Z"
     },
     {
       "id": "prod-2",
@@ -20,7 +20,7 @@
       "lastError": null,
       "groupId": "group-2",
       "addedDate": "2025-06-28",
-      "lastUpdated": "2025-10-16T02:11:54.303Z"
+      "lastUpdated": "2025-10-17T02:10:35.388Z"
     },
     {
       "id": "prod-3",
@@ -32,7 +32,7 @@
       "lastError": null,
       "groupId": "group-3",
       "addedDate": "2025-06-29",
-      "lastUpdated": "2025-10-16T02:12:14.933Z"
+      "lastUpdated": "2025-10-17T02:11:07.203Z"
     },
     {
       "id": "prod-4",
@@ -43,7 +43,7 @@
       "lastError": "Price not found. Page may have changed structure or product may be unavailable. Title: \"\"",
       "groupId": "group-1",
       "addedDate": "2025-07-06",
-      "lastUpdated": "2025-10-16T02:12:56.595Z"
+      "lastUpdated": "2025-10-17T02:11:50.710Z"
     }
   ]
 }
