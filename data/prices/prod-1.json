@@ -2,13 +2,6 @@
   "productId": "prod-1",
   "prices": [
     {
-      "date": "2025-08-26",
-      "price": null,
-      "currency": null,
-      "status": "error",
-      "error": "Price not found on mobile version"
-    },
-    {
       "date": "2025-08-27",
       "price": null,
       "currency": null,
@@ -416,6 +409,13 @@
     },
     {
       "date": "2025-10-24",
+      "price": null,
+      "currency": null,
+      "status": "error",
+      "error": "Price not found on mobile version"
+    },
+    {
+      "date": "2025-10-25",
       "price": null,
       "currency": null,
       "status": "error",
