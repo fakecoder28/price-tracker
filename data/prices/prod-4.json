@@ -2,13 +2,6 @@
   "productId": "prod-4",
   "prices": [
     {
-      "date": "2025-09-23",
-      "price": null,
-      "currency": null,
-      "status": "error",
-      "error": "Price not found. Page may have changed structure or product may be unavailable. Title: \"\""
-    },
-    {
       "date": "2025-09-24",
       "price": null,
       "currency": null,
@@ -416,6 +409,13 @@
     },
     {
       "date": "2025-11-21",
+      "price": null,
+      "currency": null,
+      "status": "error",
+      "error": "Price not found. Page may have changed structure or product may be unavailable. Title: \"\""
+    },
+    {
+      "date": "2025-11-22",
       "price": null,
       "currency": null,
       "status": "error",
