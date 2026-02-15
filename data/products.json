@@ -9,18 +9,18 @@
       "lastError": "Price not found on mobile version",
       "groupId": "group-1",
       "addedDate": "2025-06-28",
-      "lastUpdated": "2026-02-14T03:11:50.202Z"
+      "lastUpdated": "2026-02-15T03:25:43.544Z"
     },
     {
       "id": "prod-2",
       "url": "https://www.argoswatch.in/products/apollo3-olive-green-gold-two-tone-bracelet",
       "name": "Argos Apollo III Olive Green Gold Two Tone",
       "site": "argoswatch.in",
-      "status": "error",
-      "lastError": "Navigation timeout of 30000 ms exceeded",
+      "status": "active",
+      "lastError": null,
       "groupId": "group-2",
       "addedDate": "2025-06-28",
-      "lastUpdated": "2026-02-14T03:12:22.926Z"
+      "lastUpdated": "2026-02-15T03:25:59.239Z"
     },
     {
       "id": "prod-3",
@@ -32,7 +32,7 @@
       "lastError": null,
       "groupId": "group-3",
       "addedDate": "2025-06-29",
-      "lastUpdated": "2026-02-14T03:12:44.647Z"
+      "lastUpdated": "2026-02-15T03:26:31.790Z"
     },
     {
       "id": "prod-4",
@@ -43,7 +43,7 @@
       "lastError": "Price not found. Page may have changed structure or product may be unavailable. Title: \"\"",
       "groupId": "group-1",
       "addedDate": "2025-07-06",
-      "lastUpdated": "2026-02-14T03:13:26.914Z"
+      "lastUpdated": "2026-02-15T03:27:12.933Z"
     }
   ]
 }
