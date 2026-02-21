@@ -9,7 +9,7 @@
       "lastError": "Price not found on mobile version",
       "groupId": "group-1",
       "addedDate": "2025-06-28",
-      "lastUpdated": "2026-02-20T03:15:47.543Z"
+      "lastUpdated": "2026-02-21T03:06:41.820Z"
     },
     {
       "id": "prod-2",
@@ -20,7 +20,7 @@
       "lastError": "Navigation timeout of 30000 ms exceeded",
       "groupId": "group-2",
       "addedDate": "2025-06-28",
-      "lastUpdated": "2026-02-20T03:16:20.443Z"
+      "lastUpdated": "2026-02-21T03:07:14.620Z"
     },
     {
       "id": "prod-3",
@@ -32,7 +32,7 @@
       "lastError": null,
       "groupId": "group-3",
       "addedDate": "2025-06-29",
-      "lastUpdated": "2026-02-20T03:16:53.436Z"
+      "lastUpdated": "2026-02-21T03:07:38.335Z"
     },
     {
       "id": "prod-4",
@@ -40,10 +40,10 @@
       "name": "Morphy Richards Bajaj Luxe TWG (Flipkart)",
       "site": "flipkart.com",
       "status": "error",
-      "lastError": "Navigation timeout of 60000 ms exceeded",
+      "lastError": "Price not found. Page may have changed structure or product may be unavailable. Title: \"\"",
       "groupId": "group-1",
       "addedDate": "2025-07-06",
-      "lastUpdated": "2026-02-20T03:17:55.956Z"
+      "lastUpdated": "2026-02-21T03:08:19.663Z"
     }
   ]
 }
