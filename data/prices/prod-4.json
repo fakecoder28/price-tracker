@@ -2,13 +2,6 @@
   "productId": "prod-4",
   "prices": [
     {
-      "date": "2026-01-23",
-      "price": null,
-      "currency": null,
-      "status": "error",
-      "error": "Price not found. Page may have changed structure or product may be unavailable. Title: \"\""
-    },
-    {
       "date": "2026-01-24",
       "price": null,
       "currency": null,
@@ -420,6 +413,13 @@
       "currency": null,
       "status": "error",
       "error": "Navigation timeout of 60000 ms exceeded"
+    },
+    {
+      "date": "2026-03-24",
+      "price": null,
+      "currency": null,
+      "status": "error",
+      "error": "Price not found. Page may have changed structure or product may be unavailable. Title: \"\""
     }
   ]
 }
