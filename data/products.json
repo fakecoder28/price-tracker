@@ -9,7 +9,7 @@
       "lastError": "Price not found on mobile version",
       "groupId": "group-1",
       "addedDate": "2025-06-28",
-      "lastUpdated": "2026-04-18T03:35:09.495Z"
+      "lastUpdated": "2026-04-19T03:53:59.334Z"
     },
     {
       "id": "prod-2",
@@ -20,7 +20,7 @@
       "lastError": null,
       "groupId": "group-2",
       "addedDate": "2025-06-28",
-      "lastUpdated": "2026-04-18T03:35:21.112Z"
+      "lastUpdated": "2026-04-19T03:54:10.238Z"
     },
     {
       "id": "prod-3",
@@ -32,7 +32,7 @@
       "lastError": null,
       "groupId": "group-3",
       "addedDate": "2025-06-29",
-      "lastUpdated": "2026-04-18T03:35:43.223Z"
+      "lastUpdated": "2026-04-19T03:54:31.415Z"
     },
     {
       "id": "prod-4",
@@ -43,7 +43,7 @@
       "lastError": "Navigation timeout of 60000 ms exceeded",
       "groupId": "group-1",
       "addedDate": "2025-07-06",
-      "lastUpdated": "2026-04-18T03:36:47.211Z"
+      "lastUpdated": "2026-04-19T03:55:34.608Z"
     }
   ]
 }
