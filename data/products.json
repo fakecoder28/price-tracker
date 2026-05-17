@@ -9,7 +9,7 @@
       "lastError": "Price not found on mobile version",
       "groupId": "group-1",
       "addedDate": "2025-06-28",
-      "lastUpdated": "2026-05-16T04:07:49.585Z"
+      "lastUpdated": "2026-05-17T04:36:54.035Z"
     },
     {
       "id": "prod-2",
@@ -20,7 +20,7 @@
       "lastError": null,
       "groupId": "group-2",
       "addedDate": "2025-06-28",
-      "lastUpdated": "2026-05-16T04:07:58.705Z"
+      "lastUpdated": "2026-05-17T04:37:05.302Z"
     },
     {
       "id": "prod-3",
@@ -32,7 +32,7 @@
       "lastError": "Could not find price for Deluxe King Pool View. Check debug output above for page structure.",
       "groupId": "group-3",
       "addedDate": "2025-06-29",
-      "lastUpdated": "2026-05-16T04:08:24.356Z"
+      "lastUpdated": "2026-05-17T04:37:30.813Z"
     },
     {
       "id": "prod-4",
@@ -40,10 +40,10 @@
       "name": "Morphy Richards Bajaj Luxe TWG (Flipkart)",
       "site": "flipkart.com",
       "status": "error",
-      "lastError": "Price not found. Page may have changed structure or product may be unavailable. Title: \"Flipkart reCAPTCHA\"",
+      "lastError": "Navigation timeout of 60000 ms exceeded",
       "groupId": "group-1",
       "addedDate": "2025-07-06",
-      "lastUpdated": "2026-05-16T04:08:36.137Z"
+      "lastUpdated": "2026-05-17T04:38:35.608Z"
     }
   ]
 }
