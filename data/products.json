@@ -9,7 +9,7 @@
       "lastError": "Price not found on mobile version",
       "groupId": "group-1",
       "addedDate": "2025-06-28",
-      "lastUpdated": "2026-06-07T05:04:59.463Z"
+      "lastUpdated": "2026-06-08T05:10:18.206Z"
     },
     {
       "id": "prod-2",
@@ -20,7 +20,7 @@
       "lastError": null,
       "groupId": "group-2",
       "addedDate": "2025-06-28",
-      "lastUpdated": "2026-06-07T05:05:13.549Z"
+      "lastUpdated": "2026-06-08T05:10:30.260Z"
     },
     {
       "id": "prod-3",
@@ -32,18 +32,18 @@
       "lastError": null,
       "groupId": "group-3",
       "addedDate": "2025-06-29",
-      "lastUpdated": "2026-06-07T05:05:35.960Z"
+      "lastUpdated": "2026-06-08T05:10:53.665Z"
     },
     {
       "id": "prod-4",
       "url": "https://www.flipkart.com/morphy-richards-bajaj-electrical-luxe-twg-grill-toast-waffle/p/itm58174771f7d9f?pid=SWMGSYX38HUZYUSE&lid=LSTSWMGSYX38HUZYUSEFQZ3AS&marketplace=FLIPKART&store=j9e%2Fm38%2F1vj&srno=b_1_7&otracker=browse&fm=organic&iid=ea8a6498-4c85-43a3-bf71-b5b5b0032662.SWMGSYX38HUZYUSE.SEARCH&ppt=None&ppn=None&ssid=hqzllw6o8w0000001751808688663",
       "name": "Morphy Richards Bajaj Luxe TWG (Flipkart)",
       "site": "flipkart.com",
-      "status": "active",
-      "lastError": null,
+      "status": "error",
+      "lastError": "Price not found. Page may have changed structure or product may be unavailable. Title: \"Flipkart reCAPTCHA\"",
       "groupId": "group-1",
       "addedDate": "2025-07-06",
-      "lastUpdated": "2026-06-07T05:05:49.762Z"
+      "lastUpdated": "2026-06-08T05:11:06.068Z"
     }
   ]
 }
