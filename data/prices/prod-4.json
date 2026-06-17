@@ -2,13 +2,6 @@
   "productId": "prod-4",
   "prices": [
     {
-      "date": "2026-04-18",
-      "price": null,
-      "currency": null,
-      "status": "error",
-      "error": "Navigation timeout of 60000 ms exceeded"
-    },
-    {
       "date": "2026-04-19",
       "price": null,
       "currency": null,
@@ -420,6 +413,13 @@
       "currency": "INR",
       "status": "success",
       "rawData": "₹2,001"
+    },
+    {
+      "date": "2026-06-17",
+      "price": null,
+      "currency": null,
+      "status": "error",
+      "error": "Navigation timeout of 60000 ms exceeded"
     }
   ]
 }
