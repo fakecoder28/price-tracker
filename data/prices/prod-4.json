@@ -2,13 +2,6 @@
   "productId": "prod-4",
   "prices": [
     {
-      "date": "2026-05-21",
-      "price": null,
-      "currency": null,
-      "status": "error",
-      "error": "Navigation timeout of 60000 ms exceeded"
-    },
-    {
       "date": "2026-05-22",
       "price": null,
       "currency": null,
@@ -416,6 +409,13 @@
     },
     {
       "date": "2026-07-19",
+      "price": null,
+      "currency": null,
+      "status": "error",
+      "error": "Navigation timeout of 60000 ms exceeded"
+    },
+    {
+      "date": "2026-07-20",
       "price": null,
       "currency": null,
       "status": "error",
