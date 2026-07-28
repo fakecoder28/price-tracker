@@ -6,10 +6,10 @@
       "name": "Morphy Richards 3 IN 1 750 Watt Sandwich Maker (Amazon)",
       "site": "amazon.in",
       "status": "error",
-      "lastError": "Price not found on mobile version",
+      "lastError": "net::ERR_INVALID_RESPONSE at https://m.amazon.in/Morphy-Richards-Sandwich-changable-Warranty/dp/B0CDXW5R2M",
       "groupId": "group-1",
       "addedDate": "2025-06-28",
-      "lastUpdated": "2026-07-27T04:11:28.721Z"
+      "lastUpdated": "2026-07-28T03:44:37.039Z"
     },
     {
       "id": "prod-2",
@@ -20,7 +20,7 @@
       "lastError": "Price not found with any method",
       "groupId": "group-2",
       "addedDate": "2025-06-28",
-      "lastUpdated": "2026-07-27T04:11:36.567Z"
+      "lastUpdated": "2026-07-28T03:44:46.938Z"
     },
     {
       "id": "prod-3",
@@ -32,7 +32,7 @@
       "lastError": null,
       "groupId": "group-3",
       "addedDate": "2025-06-29",
-      "lastUpdated": "2026-07-27T04:12:00.034Z"
+      "lastUpdated": "2026-07-28T03:45:10.125Z"
     },
     {
       "id": "prod-4",
@@ -43,7 +43,7 @@
       "lastError": "Navigation timeout of 60000 ms exceeded",
       "groupId": "group-1",
       "addedDate": "2025-07-06",
-      "lastUpdated": "2026-07-27T04:13:04.202Z"
+      "lastUpdated": "2026-07-28T03:46:14.213Z"
     }
   ]
 }
