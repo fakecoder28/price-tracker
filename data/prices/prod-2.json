@@ -2,13 +2,6 @@
   "productId": "prod-2",
   "prices": [
     {
-      "date": "2026-06-02",
-      "price": 12990,
-      "currency": "INR",
-      "status": "success",
-      "rawData": "₹12,990.00"
-    },
-    {
       "date": "2026-06-03",
       "price": 12990,
       "currency": "INR",
@@ -416,6 +409,13 @@
     },
     {
       "date": "2026-07-31",
+      "price": null,
+      "currency": null,
+      "status": "error",
+      "error": "Price not found with any method"
+    },
+    {
+      "date": "2026-08-01",
       "price": null,
       "currency": null,
       "status": "error",
