@@ -2,13 +2,6 @@
   "productId": "prod-4",
   "prices": [
     {
-      "date": "2026-06-09",
-      "price": null,
-      "currency": null,
-      "status": "error",
-      "error": "Price not found. Page may have changed structure or product may be unavailable. Title: \"Flipkart reCAPTCHA\""
-    },
-    {
       "date": "2026-06-10",
       "price": null,
       "currency": null,
@@ -420,6 +413,13 @@
       "currency": "INR",
       "status": "success",
       "rawData": "₹1,476"
+    },
+    {
+      "date": "2026-08-08",
+      "price": 1849,
+      "currency": "INR",
+      "status": "success",
+      "rawData": "₹1,849"
     }
   ]
 }
