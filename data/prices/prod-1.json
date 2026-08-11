@@ -2,13 +2,6 @@
   "productId": "prod-1",
   "prices": [
     {
-      "date": "2026-06-12",
-      "price": null,
-      "currency": null,
-      "status": "error",
-      "error": "Price not found on mobile version"
-    },
-    {
       "date": "2026-06-13",
       "price": null,
       "currency": null,
@@ -416,6 +409,13 @@
     },
     {
       "date": "2026-08-10",
+      "price": null,
+      "currency": null,
+      "status": "error",
+      "error": "net::ERR_INVALID_RESPONSE at https://m.amazon.in/Morphy-Richards-Sandwich-changable-Warranty/dp/B0CDXW5R2M"
+    },
+    {
+      "date": "2026-08-11",
       "price": null,
       "currency": null,
       "status": "error",
