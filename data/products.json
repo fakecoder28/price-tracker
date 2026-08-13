@@ -9,7 +9,7 @@
       "lastError": "net::ERR_INVALID_RESPONSE at https://m.amazon.in/Morphy-Richards-Sandwich-changable-Warranty/dp/B0CDXW5R2M",
       "groupId": "group-1",
       "addedDate": "2025-06-28",
-      "lastUpdated": "2026-08-12T03:02:53.038Z"
+      "lastUpdated": "2026-08-13T03:06:06.911Z"
     },
     {
       "id": "prod-2",
@@ -20,7 +20,7 @@
       "lastError": null,
       "groupId": "group-2",
       "addedDate": "2025-06-28",
-      "lastUpdated": "2026-08-12T03:03:03.393Z"
+      "lastUpdated": "2026-08-13T03:06:18.191Z"
     },
     {
       "id": "prod-3",
@@ -32,7 +32,7 @@
       "lastError": null,
       "groupId": "group-3",
       "addedDate": "2025-06-29",
-      "lastUpdated": "2026-08-12T03:03:27.519Z"
+      "lastUpdated": "2026-08-13T03:06:40.791Z"
     },
     {
       "id": "prod-4",
@@ -43,7 +43,7 @@
       "lastError": null,
       "groupId": "group-1",
       "addedDate": "2025-07-06",
-      "lastUpdated": "2026-08-12T03:03:41.963Z"
+      "lastUpdated": "2026-08-13T03:06:54.939Z"
     }
   ]
 }
