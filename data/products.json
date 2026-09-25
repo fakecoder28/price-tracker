@@ -9,7 +9,7 @@
       "lastError": "Price not found on mobile version",
       "groupId": "group-1",
       "addedDate": "2025-06-28",
-      "lastUpdated": "2026-09-24T05:07:51.663Z"
+      "lastUpdated": "2026-09-25T05:09:45.609Z"
     },
     {
       "id": "prod-2",
@@ -20,7 +20,7 @@
       "lastError": null,
       "groupId": "group-2",
       "addedDate": "2025-06-28",
-      "lastUpdated": "2026-09-24T05:08:03.351Z"
+      "lastUpdated": "2026-09-25T05:09:58.213Z"
     },
     {
       "id": "prod-3",
@@ -32,7 +32,7 @@
       "lastError": null,
       "groupId": "group-3",
       "addedDate": "2025-06-29",
-      "lastUpdated": "2026-09-24T05:08:23.698Z"
+      "lastUpdated": "2026-09-25T05:10:18.593Z"
     },
     {
       "id": "prod-4",
@@ -40,10 +40,10 @@
       "name": "Morphy Richards Bajaj Luxe TWG (Flipkart)",
       "site": "flipkart.com",
       "status": "error",
-      "lastError": "Navigation timeout of 60000 ms exceeded",
+      "lastError": "Price not found. Page may have changed structure or product may be unavailable. Title: \"Morphy Richards by BAJAJ ELECTRICAL LUXE TWG Grill, Toast, Waffle Price in India - Buy Morphy Richards by BAJAJ ELECTRICAL LUXE TWG Grill, Toast, Waffle Online at Flipkart.com\"",
       "groupId": "group-1",
       "addedDate": "2025-07-06",
-      "lastUpdated": "2026-09-24T05:09:27.844Z"
+      "lastUpdated": "2026-09-25T05:10:29.687Z"
     }
   ]
 }
